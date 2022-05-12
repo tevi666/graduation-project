@@ -3,11 +3,11 @@ export const scroll = () => {
 
     function trackScroll() {
         const scrolles = window.pageYOffset;
-        const clnHight = document.documentElement.clientHeight;
-        if (scrolles > clnHight) {
+        const clientHeight = document.documentElement.clientHeight;
+        if (scrolles > clientHeight) {
             scroll.classList.add('smooth-scroll-show');
         }
-        if (scrolles < clnHight) {
+        if (scrolles < clientHeight) {
             scroll.classList.remove('smooth-scroll-show');
         }
     }
