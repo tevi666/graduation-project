@@ -1,0 +1,26 @@
+{
+  "name": "middle_diplom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "watch": "webpack --watch --mode=development",
+    "start": "webpack serve --mode=development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tevi666/graduation-project.git"
+  },
+  "author": "https://github.com/tevi666/",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tevi666/graduation-project/issues"
+  },
+  "homepage": "https://github.com/tevi666/graduation-project#readme",
+  "devDependencies": {
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  }
+}
