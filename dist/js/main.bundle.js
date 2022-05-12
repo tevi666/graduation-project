@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"modal\": () => (/* binding */ modal)\n/* harmony export */ });\nconst modal = () => {\n    const btn = document.querySelector('.button');\n    const modal = document.querySelector('.header-modal');\n    const closeBtn = document.querySelector('.header-modal__close');\n\n    btn.addEventListener('click', (e) => {\n        modal.style.display = 'inline-block';\n    });\n    closeBtn.addEventListener('click', (e) => {\n        modal.style.display = 'none';\n    });\n};\n\n//# sourceURL=webpack:///./modules/modal.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"modal\": () => (/* binding */ modal)\n/* harmony export */ });\nconst modal = () => {\n    const btn = document.querySelector('.button');\n    const modal = document.querySelector('.header-modal');\n    const closeBtn = document.querySelector('.header-modal__close');\n\n    btn.addEventListener('click', (e) => {\n        e.preventDefault();\n        modal.style.display = 'inline-block';\n    });\n    closeBtn.addEventListener('click', (e) => {\n        e.preventDefault();\n        modal.style.display = 'none';\n    });\n};\n\n//# sourceURL=webpack:///./modules/modal.js?");
 
 /***/ }),
 
@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"servicesModal\": () => (/* binding */ servicesModal)\n/* harmony export */ });\nconst servicesModal = () => {\n    const modal = document.querySelector('.services-modal');\n    const btn = document.querySelectorAll('.service-button');\n    const btnClose = document.querySelector('.services-modal__close');\n\n    btn.forEach(button => {\n        button.addEventListener('click', () => {\n            modal.style.display = 'inline-block';\n        });\n    });\n    btnClose.addEventListener('click', () => {\n        modal.style.display = 'none';\n    });\n};\n\n//# sourceURL=webpack:///./modules/servicesModal.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"servicesModal\": () => (/* binding */ servicesModal)\n/* harmony export */ });\nconst servicesModal = () => {\n    const modal = document.querySelector('.services-modal');\n    const btn = document.querySelectorAll('.service-button');\n    const btnClose = document.querySelector('.services-modal__close');\n\n    btn.forEach(button => {\n        button.addEventListener('click', (e) => {\n            e.preventDefault();\n            modal.style.display = 'inline-block';\n        });\n    });\n    btnClose.addEventListener('click', (e) => {\n        e.preventDefault();\n        modal.style.display = 'none';\n    });\n};\n\n//# sourceURL=webpack:///./modules/servicesModal.js?");
 
 /***/ }),
 

@@ -4,11 +4,13 @@ export const servicesModal = () => {
     const btnClose = document.querySelector('.services-modal__close');
 
     btn.forEach(button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
             modal.style.display = 'inline-block';
         });
     });
-    btnClose.addEventListener('click', () => {
+    btnClose.addEventListener('click', (e) => {
+        e.preventDefault();
         modal.style.display = 'none';
     });
 };
