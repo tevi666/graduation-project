@@ -17,8 +17,13 @@ import {
 import {
     scroll
 } from "./modules/scroll";
+
+import {
+    increase
+} from "./modules/increase";
 modal();
 servicesModal();
 timer('27 september 2022');
 swiper();
 scroll();
+increase();

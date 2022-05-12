@@ -1447,6 +1447,13 @@ input.error {
   padding-left: 0;
 }
 
+.smooth-scroll {
+  display: none;
+}
+.smooth-scroll-show {
+	display: flex;
+}
+
 @media only screen and (min-width: 992px) {
   ::-webkit-resizer {
     background-image: url("");
