@@ -1,8 +1,8 @@
 export const timer = (deadline) => {
-    const timerDays = document.querySelector('.count_1');
-    const timerHours = document.querySelector('.count_2');
-    const timerMinutes = document.querySelector('.count_3');
-    const timerSeconds = document.querySelector('.count_4');
+    const timerDays = document.querySelectorAll('.count_1');
+    const timerHours = document.querySelectorAll('.count_2');
+    const timerMinutes = document.querySelectorAll('.count_3');
+    const timerSeconds = document.querySelectorAll('.count_4');
     let addingZero;
 
     let interval;
@@ -30,17 +30,32 @@ export const timer = (deadline) => {
 
         addingZero = number => number < 10 ? `0${number} ` : number;
 
-        timerDays.textContent = addingZero(getTime.days);
-        timerHours.textContent = addingZero(getTime.hours);
-        timerMinutes.textContent = addingZero(getTime.minutes);
-        timerSeconds.textContent = addingZero(getTime.seconds);
-
+        timerDays.forEach(days => {
+            days.innerHTML = `Дней:</br> <span>${addingZero(getTime.days)}</span>`;
+        });
+        timerHours.forEach(hours => {
+            hours.innerHTML = `Часов:</br> <span>${addingZero(getTime.hours)}</span>`;
+        });
+        timerMinutes.forEach(minutes => {
+            minutes.innerHTML = `Минут:</br> <span>${addingZero(getTime.minutes)}</span>`;
+        });
+        timerSeconds.forEach(seconds => {
+            seconds.innerHTML = `Секунд:</br> <span>${addingZero(getTime.seconds)}</span>`;
+        });
         if (getTime.timeRemaining <= 0) {
             clearInterval(interval);
-            timerDays.textContent = '00';
-            timerHours.textContent = '00';
-            timerMinutes.textContent = '00';
-            timerSeconds.textContent = '00';
+            timerDays.forEach(days => {
+                days.innerHTML = `Дней:</br> <span>00</span>`;
+            });
+            timerHours.forEach(hours => {
+                hours.innerHTML = `Часов:</br> <span>00</span>`;
+            });
+            timerMinutes.forEach(minutes => {
+                minutes.innerHTML = `Минут:</br> <span>00</span>`;
+            });
+            timerSeconds.forEach(seconds => {
+                seconds.innerHTML = `Секунд:</br> <span>00</span>`;
+            });
         }
     };
     updateClock();

@@ -21,9 +21,14 @@ import {
 import {
     increase
 } from "./modules/increase";
+
+import {
+    calculate
+} from "./modules/calculate";
 modal();
 servicesModal();
-timer('27 september 2022');
+timer('20 may 2022');
 swiper();
 scroll();
 increase();
+calculate();
