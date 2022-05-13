@@ -48,6 +48,6 @@ increase({
 	boxElementSelector: '.sertificate-document',
 	modalBodySelector: '.image-modal__body'
 });
-calculate(100);
+calculate();
 validation();
 sendForm();

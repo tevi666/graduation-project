@@ -1,44 +1,47 @@
 import {
-    animate
+	animate
 } from './helpers';
-export const calculate = (price = 100) => {
-    const calcTypeMaterial = document.querySelector('#calc-type-material');
-    const calcType = document.querySelector('#calc-type');
-    const calcInput = document.querySelector('#calc-input');
-    const calcTotal = document.querySelector('#calc-total');
-    const calc = document.querySelector('#calc');
 
-    const countCalc = () => {
-        const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
-        const calcTypeMaterialValue = +calcTypeMaterial.options[calcTypeMaterial.selectedIndex].value;
-        const calcInputValue = calcInput.value;
+export const calculate = () => {
+	const calcBlock = document.getElementById('calc');
+	const calcType = document.getElementById('calc-type');
+	const calcTypeMaterial = document.getElementById('calc-type-material');
+	const calcSquare = document.getElementById('calc-input');
+	const total = document.getElementById('calc-total');
 
-        let totalValue = 0;
-        let calcInputVal = 1;
+	const countCalc = () => {
+		const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
+		const calcSquareValue = +calcSquare.value;
+		const calcTypeMaterialValue = +calcTypeMaterial.options[calcTypeMaterial.selectedIndex].value;
 
-        if (calcInput.value > 1) {
-            calcInputVal += calcInput.value / 10;
-        }
+		let totalValue = 0;
 
-        if (calcType.value && calcTypeMaterial.value) {
-            totalValue = price * calcTypeValue * calcTypeMaterialValue * calcInputValue;
-        } else {
-            totalValue = 0;
-        }
-        return totalValue;
-    };
-    calc.addEventListener('input', e => {
-        if (e.target === calcType || e.target === calcInput || e.target === calcTypeMaterial) {
-            const totalValue = countCalc();
-            animate({
-                duration: 500,
-                timing(timeFraction) {
-                    return timeFraction;
-                },
-                draw(progress) {
-                    calcTotal.textContent = Math.round(progress * totalValue);
-                }
-            });
-        }
-    });
+		if (calcTypeValue && calcSquareValue && calcTypeMaterialValue) {
+			totalValue = calcSquareValue * calcTypeValue * calcTypeMaterialValue;
+		} else if (calcTypeValue && calcSquareValue) {
+			totalValue = calcSquareValue * calcTypeValue;
+		} else {
+			totalValue = 0;
+		}
+		return totalValue;
+	};
+
+	calcBlock.addEventListener('input', e => {
+		if (e.target === calcSquare) {
+			e.target.value = e.target.value.replace(/\D+/g, '');
+		}
+		if (e.target === calcType || e.target === calcTypeMaterial || e.target === calcSquare) {
+			const totalValue = countCalc();
+
+			animate({
+				duration: 300,
+				timing(timeFraction) {
+					return timeFraction;
+				},
+				draw(progress) {
+					total.value = Math.round(progress * totalValue);
+				}
+			});
+		}
+	});
 };
