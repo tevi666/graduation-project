@@ -25,10 +25,24 @@ import {
 import {
     calculate
 } from "./modules/calculate";
+
+import {
+    validation
+} from "./modules/validation";
+
 modal();
 servicesModal();
 timer('20 may 2022');
 swiper();
 scroll();
-increase();
+increase({
+	elementSelector: '.document-overlay',
+	modalSelector: '.image-modal',
+	overlaySelector: '.overlay',
+	closeSelector: '.image-modal__close',
+	isImageModal: true,
+	boxElementSelector: '.sertificate-document',
+	modalBodySelector: '.image-modal__body'
+});
 calculate();
+validation();

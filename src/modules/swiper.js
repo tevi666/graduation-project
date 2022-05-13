@@ -11,10 +11,10 @@ export const swiper = () => {
         },
         breakpoints: {
             576: {
-                slidesPerView: 1,
+                slidesPerView: 2,
             },
             1024: {
-                slidesPerView: 1,
+                slidesPerView: 3,
             },
         },
     });
