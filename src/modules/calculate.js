@@ -2,34 +2,43 @@ import {
     animate
 } from './helpers';
 export const calculate = (price = 100) => {
-    const calcTypeMaterial = document.getElementById('calc-type-material');
-    const calcType = document.getElementById('calc-type');
-    const calcInput = document.getElementById('calc-input');
-    const calcTotal = document.getElementById('calc-total');
+    const calcTypeMaterial = document.querySelector('#calc-type-material');
+    const calcType = document.querySelector('#calc-type');
+    const calcInput = document.querySelector('#calc-input');
+    const calcTotal = document.querySelector('#calc-total');
+    const calc = document.querySelector('#calc');
+
     const countCalc = () => {
         const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
-        const calcTypeMaterialValue = calcTypeMaterial.value;
+        const calcTypeMaterialValue = +calcTypeMaterial.options[calcTypeMaterial.selectedIndex].value;
+        const calcInputValue = calcInput.value;
 
         let totalValue = 0;
-        let calcCountValue = 1;
-        let calcInputValue = 1;
+        let calcInputVal = 1;
 
-        if (calcCount.value > 1) {
-            calcCountValue += +calcCount.value / 10;
-        }
-
-        if (calcInput.value && calcInput.value < 5) {
-            calcInputValue = 2;
-        } else if (calcInput.value && calcInput.value < 10) {
-            calcInputValue = 1.5;
+        if (calcInput.value > 1) {
+            calcInputVal += calcInput.value / 10;
         }
 
         if (calcType.value && calcTypeMaterial.value) {
-            totalValue = price * calcTypeValue * calcTypeMaterialValue * calcCountValue;
+            totalValue = price * calcTypeValue * calcTypeMaterialValue * calcInputValue;
         } else {
             totalValue = 0;
         }
-
         return totalValue;
     };
+    calc.addEventListener('input', e => {
+        if (e.target === calcType || e.target === calcInput || e.target === calcTypeMaterial) {
+            const totalValue = countCalc();
+            animate({
+                duration: 500,
+                timing(timeFraction) {
+                    return timeFraction;
+                },
+                draw(progress) {
+                    calcTotal.textContent = Math.round(progress * totalValue);
+                }
+            });
+        }
+    });
 };

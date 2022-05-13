@@ -6,16 +6,16 @@ export const swiper = () => {
         slidesPerView: 1,
         modules: [Autoplay],
         autoplay: {
-            delay: 2000,
-            disableOnInteraction: false,
+            delay: 2500,
+            disableOnInteraction: false
         },
         breakpoints: {
             576: {
-                slidesPerView: 2,
+                slidesPerView: 3,
             },
             1024: {
                 slidesPerView: 3,
-            },
+            }
         },
     });
 };

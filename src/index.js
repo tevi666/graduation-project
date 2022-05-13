@@ -30,9 +30,13 @@ import {
     validation
 } from "./modules/validation";
 
+import {
+    sendForm
+} from "./modules/sendForm";
+
 modal();
 servicesModal();
-timer('20 may 2022');
+timer('20 may 2022 22:00');
 swiper();
 scroll();
 increase({
@@ -44,5 +48,6 @@ increase({
 	boxElementSelector: '.sertificate-document',
 	modalBodySelector: '.image-modal__body'
 });
-calculate();
+calculate(100);
 validation();
+sendForm();

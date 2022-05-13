@@ -964,6 +964,22 @@ p.services-image_mobile {
   display: table;
   clear: both;
 }
+.swiper {
+  width: 500px;
+  display: flex;
+  justify-self: center;
+}
+@media (max-width: 575px) {
+  .swiper {
+    width: 180px;
+  }
+}
+@media (min-width: 576px) {
+  .swiper {
+    width: 550px;
+  }
+}
+
 .countdown-inner {
   margin: 5px;
   display: inline-block;
