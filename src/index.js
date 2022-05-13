@@ -34,6 +34,10 @@ import {
     sendForm
 } from "./modules/sendForm";
 
+import {
+    serviceSlider
+} from "./modules/serviceSlider";
+
 modal();
 servicesModal();
 timer('20 may 2022 22:00');
@@ -51,3 +55,4 @@ increase({
 calculate();
 validation();
 sendForm();
+serviceSlider();
