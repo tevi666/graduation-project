@@ -27,10 +27,6 @@ import {
 } from "./modules/calculate";
 
 import {
-    validation
-} from "./modules/validation";
-
-import {
     sendForm
 } from "./modules/sendForm";
 
@@ -44,15 +40,27 @@ timer('20 may 2022 22:00');
 swiper();
 scroll();
 increase({
-	elementSelector: '.document-overlay',
-	modalSelector: '.image-modal',
-	overlaySelector: '.overlay',
-	closeSelector: '.image-modal__close',
-	isImageModal: true,
-	boxElementSelector: '.sertificate-document',
-	modalBodySelector: '.image-modal__body'
+    elementSelector: '.document-overlay',
+    modalSelector: '.image-modal',
+    overlaySelector: '.overlay',
+    closeSelector: '.image-modal__close',
+    isImageModal: true,
+    boxElementSelector: '.sertificate-document',
+    modalBodySelector: '.image-modal__body'
 });
 calculate();
-validation();
-sendForm();
+sendForm({
+    formSelector: '[name="action-form"]',
+    additionalData: [{
+        type: 'input',
+        selector: '#calc-total'
+    }]
+});
+sendForm({
+    formSelector: '[name="action-form2"]',
+    additionalData: [{
+        type: 'input',
+        selector: '#calc-total'
+    }]
+});
 serviceSlider();
