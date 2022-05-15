@@ -34,13 +34,15 @@ export const sendModal = () => {
         item.addEventListener('submit', e => {
             e.preventDefault();
             if (isValidatedForm(item)) {
-                const formData = new FormData(item);
-                postData('https://jsonplaceholder.typicode.com/posts', formData)
-                    .then(res => {
-                        console.log(res);
-                    })
-                    .catch(() => message);
-                clearInputs();
+                setTimeout(() => {
+                    const formData = new FormData(item);
+                    postData('https://jsonplaceholder.typicode.com/posts', formData)
+                        .then(res => {
+                            console.log(res);
+                        })
+                        .catch(() => message);
+                    clearInputs();
+                }, 1000);
             }
         });
     });
@@ -48,13 +50,15 @@ export const sendModal = () => {
         item.addEventListener('submit', e => {
             e.preventDefault();
             if (isValidatedForm(item)) {
-                const formData = new FormData(item);
-                postData('https://jsonplaceholder.typicode.com/posts', formData)
-                    .then(res => {
-                        console.log(res);
-                    })
-                    .catch(() => message);
-                clearInputs();
+                setTimeout(() => {
+                    const formData = new FormData(item);
+                    postData('https://jsonplaceholder.typicode.com/posts', formData)
+                        .then(res => {
+                            console.log(res);
+                        })
+                        .catch(() => message);
+                    clearInputs();
+                }, 1000);
             }
         });
     });
