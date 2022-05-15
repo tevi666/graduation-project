@@ -3,8 +3,8 @@ import {
 } from './helpers';
 
 export const calculate = () => {
-	try {
-		const calcBlock = document.getElementById('calc');
+	const calcBlock = document.getElementById('calc');
+	if (calcBlock) {
 		const calcType = document.getElementById('calc-type');
 		const calcTypeMaterial = document.getElementById('calc-type-material');
 		const calcSquare = document.getElementById('calc-input');
@@ -45,7 +45,5 @@ export const calculate = () => {
 				});
 			}
 		});
-	} catch (e) {
-		console.log(e.message);
 	}
 };

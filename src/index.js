@@ -3,24 +3,17 @@ import {
 } from "./modules/modal";
 
 import {
-    servicesModal
-} from "./modules/servicesModal";
-
-import {
     timer
 } from "./modules/timer";
 
 import {
-    swiper
-} from "./modules/swiper";
+    swiperBenefits,
+    swiperServices
+} from './modules/swiper';
 
 import {
     scroll
 } from "./modules/scroll";
-
-import {
-    increase
-} from "./modules/increase";
 
 import {
     calculate
@@ -31,15 +24,24 @@ import {
 } from "./modules/sendForm";
 
 import {
-    serviceSlider
-} from "./modules/serviceSlider";
+    sendModal
+} from "./modules/sendModal";
 
-modal();
-servicesModal();
 timer('20 may 2022 22:00');
-swiper();
 scroll();
-increase({
+modal({
+    elementSelector: '.callback',
+    modalSelector: '.header-modal',
+    overlaySelector: '.overlay',
+    closeSelector: '.header-modal__close',
+});
+modal({
+    elementSelector: '.measurer-call',
+    modalSelector: '.services-modal',
+    overlaySelector: '.overlay',
+    closeSelector: '.services-modal__close',
+});
+modal({
     elementSelector: '.document-overlay',
     modalSelector: '.image-modal',
     overlaySelector: '.overlay',
@@ -63,4 +65,4 @@ sendForm({
         selector: '#calc-total'
     }]
 });
-serviceSlider();
+sendModal();

@@ -1,63 +1,70 @@
 export const timer = (deadline) => {
-    const timerDays = document.querySelectorAll('.count_1');
-    const timerHours = document.querySelectorAll('.count_2');
-    const timerMinutes = document.querySelectorAll('.count_3');
-    const timerSeconds = document.querySelectorAll('.count_4');
-    let addingZero;
+	const timersDays = document.querySelectorAll('.count_1 span');
+	const timersHours = document.querySelectorAll('.count_2 span');
+	const timersMinutes = document.querySelectorAll('.count_3 span');
+	const timersSeconds = document.querySelectorAll('.count_4 span');
 
-    let interval;
+	if (!deadline) {
+		for (let i = 0; i < timersDays.length; i++) {
+			try {
+				timersDays[i].textContent = '00';
+				timersHours[i].textContent = '00';
+				timersMinutes[i].textContent = '00';
+				timersSeconds[i].textContent = '00';
+			} catch (error) {
+				console.log(error.message);
+			}
+		}
+		return;
+	}
 
-    const getTimeRemaining = () => {
-        let dateStop = new Date(deadline).getTime();
-        let dateNow = new Date().getTime();
-        let timeRemaining = (dateStop - dateNow) / 1000;
-        let days = Math.floor(timeRemaining / 60 / 60 / 24);
-        let hours = Math.floor((timeRemaining / 60 / 60) % 24);
-        let minutes = Math.floor((timeRemaining / 60) % 60);
-        let seconds = Math.floor(timeRemaining % 60);
+	let interval;
 
-        return {
-            timeRemaining,
-            days,
-            hours,
-            minutes,
-            seconds
-        };
-    };
+	const getTimeRemaining = () => {
+		let dateStop = new Date(deadline).getTime();
+		let dateNow = new Date().getTime();
+		let timeRemaining = (dateStop - dateNow) / 1000;
+		let days = Math.floor(timeRemaining / 60 / 60 / 24);
+		let hours = Math.floor((timeRemaining / 60 / 60) % 24);
+		let minutes = Math.floor((timeRemaining / 60) % 60);
+		let seconds = Math.floor(timeRemaining % 60);
 
-    const updateClock = () => {
-        let getTime = getTimeRemaining();
+		return {
+			timeRemaining,
+			days,
+			hours,
+			minutes,
+			seconds
+		};
+	};
 
-        addingZero = number => number < 10 ? `0${number} ` : number;
+	const updateClock = () => {
+		let getTime = getTimeRemaining();
+		for (let i = 0; i < timersDays.length; i++) {
+			try {
+				timersDays[i].textContent = getTime.days < 10 ? '0' + getTime.days : getTime.days;
+				timersHours[i].textContent = getTime.hours < 10 ? '0' + getTime.hours : getTime.hours;
+				timersMinutes[i].textContent = getTime.minutes < 10 ? '0' + getTime.minutes : getTime.minutes;
+				timersSeconds[i].textContent = getTime.seconds < 10 ? '0' + getTime.seconds : getTime.seconds;
+			} catch (error) {
+				console.log(error.message);
+			}
+		}
+		if (getTime.timeRemaining <= 0) {
+			clearInterval(interval);
+			for (let i = 0; i < timersDays.length; i++) {
+				try {
+					timersDays[i].textContent = '00';
+					timersHours[i].textContent = '00';
+					timersMinutes[i].textContent = '00';
+					timersSeconds[i].textContent = '00';
+				} catch (error) {
+					console.log(error.message);
+				}
+			}
+		}
+	};
 
-        timerDays.forEach(days => {
-            days.innerHTML = `Дней:</br> <span>${addingZero(getTime.days)}</span>`;
-        });
-        timerHours.forEach(hours => {
-            hours.innerHTML = `Часов:</br> <span>${addingZero(getTime.hours)}</span>`;
-        });
-        timerMinutes.forEach(minutes => {
-            minutes.innerHTML = `Минут:</br> <span>${addingZero(getTime.minutes)}</span>`;
-        });
-        timerSeconds.forEach(seconds => {
-            seconds.innerHTML = `Секунд:</br> <span>${addingZero(getTime.seconds)}</span>`;
-        });
-        if (getTime.timeRemaining <= 0) {
-            clearInterval(interval);
-            timerDays.forEach(days => {
-                days.innerHTML = `Дней:</br> <span>00</span>`;
-            });
-            timerHours.forEach(hours => {
-                hours.innerHTML = `Часов:</br> <span>00</span>`;
-            });
-            timerMinutes.forEach(minutes => {
-                minutes.innerHTML = `Минут:</br> <span>00</span>`;
-            });
-            timerSeconds.forEach(seconds => {
-                seconds.innerHTML = `Секунд:</br> <span>00</span>`;
-            });
-        }
-    };
-    updateClock();
-    interval = setInterval(updateClock, 1000);
+	updateClock();
+	interval = setInterval(updateClock, 500);
 };

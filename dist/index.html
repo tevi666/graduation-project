@@ -15,13 +15,12 @@
 	<link href="fonts/font.css" rel="stylesheet" type="text/css">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-	<script defer src="./js/main.bundle.js"></script>
 	<title>Установка пластиковых (ПВХ) окон</title>
 	<meta name="keywords"
 		content="пластиковые, окна, пвх, вставить, века, дом, профиль, поставить, установить, установка, стандартные, цветные, сайт, современные, купить, фирма, цены, дешевые, стоимость, остекление, монтаж">
 	<meta name="description"
 		content="Окна в дом, квартиру или коттедж из пластикового (пвх) или алюминиевого профиля. Стандартные, цветные и с индивидуальным дизайном! Отличные цены и акции!">
+	<script src="js/main.bundle.js" defer></script>
 
 </head>
 
@@ -72,7 +71,7 @@
 						<a href="tel:89876543210">+7 (987) <strong>654-32-10</strong></a>
 					</div>
 					<div class="top-btn pull-left">
-						<a href="#callback" class="btn btn-warning btn-md fancyboxModal">Заказать звонок!</a>
+						<a href="#callback" class="btn btn-warning btn-md fancyboxModal callback">Заказать звонок!</a>
 					</div>
 				</div>
 			</div>
@@ -96,8 +95,9 @@
 										class="text-normal">654-32-10</span></a></div>
 						</div>
 						<div class="col-sm-12 col-lg-6">
-							<div class="button"><a href="#callback" class="btn btn-warning btn-block fancyboxModal"><i
-										class="phone-icon"></i> Заказать звонок!</a></div>
+							<div class="button"><a href="#callback"
+									class="btn btn-warning btn-block fancyboxModal callback"><i class="phone-icon"></i>
+									Заказать звонок!</a></div>
 						</div>
 					</div>
 				</div>
@@ -152,45 +152,65 @@
 				<div class="heading-image"><i class="benefit-ico"></i></div>
 				<h2 class="heading"><span>Выгоды</span> для клиентов</h2>
 			</div>
-			<div class="benefits-inner swiper">
-				<div class="benefits-wrap swiper-wrapper">
-					<div class="benefits__item swiper-slide">
-						<p class="benefit-image">
-							<img src="images/benefits/4.png" alt="">
-						</p>
-						<p class="benefit-title">Рассрочка без банка </p>
+			<div class="swiper swiper-benefits">
+
+				<div class="swiper-wrapper">
+
+					<div class="swiper-slide">
+						<div class="benefits__item">
+							<p class="benefit-image">
+								<img src="images/benefits/4.png" alt="">
+							</p>
+							<p class="benefit-title">Рассрочка без банка </p>
+						</div>
 					</div>
-					<div class="benefits__item swiper-slide">
-						<p class="benefit-image"><img src="images/benefits/2.png" alt=""></p>
-						<p class="benefit-title">Гарантии от 3 до 10 лет</p>
+					<div class="swiper-slide">
+						<div class="benefits__item">
+							<p class="benefit-image"><img src="images/benefits/2.png" alt=""></p>
+							<p class="benefit-title">Гарантии от 3 до 10 лет</p>
+						</div>
 					</div>
-					<div class="benefits__item swiper-slide">
-						<p class="benefit-image"><img src="images/benefits/3.png" alt=""></p>
-						<p class="benefit-title">Индивидуальный подход</p>
+					<div class="swiper-slide">
+						<div class="benefits__item">
+							<p class="benefit-image"><img src="images/benefits/3.png" alt=""></p>
+							<p class="benefit-title">Индивидуальный подход</p>
+						</div>
 					</div>
-					<div class="benefits__item swiper-slide">
-						<p class="benefit-image"><img src="images/benefits/1.png" alt=""></p>
-						<p class="benefit-title">Бесплатные консультации</p>
+					<div class="swiper-slide">
+						<div class="benefits__item">
+							<p class="benefit-image"><img src="images/benefits/1.png" alt=""></p>
+							<p class="benefit-title">Бесплатные консультации</p>
+						</div>
 					</div>
-					<div class="benefits__item swiper-slide">
-						<p class="benefit-image"><img src="images/benefits/5.png" alt=""></p>
-						<p class="benefit-title">Бесплатный выезд мастера на дом</p>
+					<div class="swiper-slide">
+						<div class="benefits__item">
+							<p class="benefit-image"><img src="images/benefits/5.png" alt=""></p>
+							<p class="benefit-title">Бесплатный выезд мастера на дом</p>
+						</div>
 					</div>
-					<div class="benefits__item swiper-slide">
-						<p class="benefit-image"><img src="images/benefits/6.png" alt=""></p>
-						<p class="benefit-title">Окна от лучших производителей</p>
+					<div class="swiper-slide">
+						<div class="benefits__item">
+							<p class="benefit-image"><img src="images/benefits/6.png" alt=""></p>
+							<p class="benefit-title">Окна от лучших производителей</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="benefits-arrows">
+					<div class="swiper-button-prev">
+						<div class="benefits__arrow benefits__arrow--left">
+							<img src="images/benefits/left-arrow.svg" alt="">
+						</div>
+					</div>
+					<div class="swiper-button-next">
+						<div class="benefits__arrow benefits__arrow--right">
+							<img src="images/benefits/right-arrow.svg" alt="">
+						</div>
 					</div>
 				</div>
 
 			</div>
-			<!-- <div class="benefits-arrows">
-				<div class="benefits__arrow benefits__arrow--left">
-					<img src="images/benefits/left-arrow.svg" alt="">
-				</div>
-				<div class="benefits__arrow benefits__arrow--right">
-					<img src="images/benefits/right-arrow.svg" alt="">
-				</div>
-			</div> -->
 		</div>
 	</div>
 	</div>
@@ -201,81 +221,109 @@
 				<h2 class="heading white">Наши <span>услуги</span></h2>
 			</div>
 			<div class="row">
-				<div class="col-md-12 col-lg-6">
-					<div class="service-block">
-						<div class="service-image">
-							<img src="images/services/5.jpg" alt="">
+				<div class="swiper swiper-services">
+
+					<div class="swiper-wrapper">
+
+						<div class="swiper-slide">
+							<div class="service-block">
+								<div class="service-image">
+									<img src="images/services/5.jpg" alt="">
+								</div>
+								<div class="service-text">
+									<h3>Стандартные ПВХ-окна</h3>
+									<p>Доступные окна высокого качества.</p>
+									<p><strong>От 3 200 руб./м<sup>2</sup></strong></p>
+									<p class="services-image_mobile visible-xs-block"><a
+											href="images/services/original/standart/1.jpg"
+											data-fancybox-group="fancybox-thumb-1" class="fancybox-thumb"><span>Смотреть
+												работы</span></a></p>
+									<div class="service-button"><a href="#application"
+											data-subject="Стандартные ПВХ-окна"
+											class="btn btn-success btn-sm fancyboxModal measurer-call">Вызвать
+											замерщика</a>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="service-text">
-							<h3>Стандартные ПВХ-окна</h3>
-							<p>Доступные окна высокого качества.</p>
-							<p><strong>От 3 200 руб./м<sup>2</sup></strong></p>
-							<p class="services-image_mobile visible-xs-block"><a
-									href="images/services/original/standart/1.jpg"
-									data-fancybox-group="fancybox-thumb-1" class="fancybox-thumb"><span>Смотреть
-										работы</span></a></p>
-							<div class="service-button"><a href="#application" data-subject="Стандартные ПВХ-окна"
-									class="btn btn-success btn-sm fancyboxModal">Вызвать замерщика</a></div>
+						<div class="swiper-slide">
+							<div class="service-block">
+								<div class="service-image">
+									<img src="images/services/6.jpg" alt="">
+								</div>
+								<div class="service-text">
+									<h3>Пвх-окна премиум класса</h3>
+									<p>Европейское качество, по ценам ниже рыночных.</p>
+									<p><strong>От 6 200 руб./м<sup>2</sup></strong></p>
+									<p class="services-image_mobile visible-xs-block"><a
+											href="images/services/original/premium/1.jpg"
+											data-fancybox-group="fancybox-thumb-2" class="fancybox-thumb"><span>Смотреть
+												работы</span></a>
+									</p>
+									<div class="service-button"><a href="#application"
+											data-subject="Пвх-окна премиум класса"
+											class="btn btn-success btn-sm fancyboxModal measurer-call">Вызвать
+											замерщика</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="service-block">
+								<div class="service-image">
+									<img src="images/services/7.jpg" alt="">
+								</div>
+								<div class="service-text">
+									<h3>Входные группы-перегородки</h3>
+									<p>Алюминиевые и пластиковые перегородки заводского качества.</p>
+									<p><strong>От 8 350 руб./м<sup>2</sup></strong></p>
+									<p class="services-image_mobile visible-xs-block"><a
+											href="images/services/original/septa/1.jpg"
+											data-fancybox-group="fancybox-thumb-3" class="fancybox-thumb"><span>Смотреть
+												работы</span></a>
+									</p>
+									<div class="service-button"><a href="#application"
+											data-subject="Входные группы-перегородки"
+											class="btn btn-success btn-sm fancyboxModal measurer-call">Вызвать
+											замерщика</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="service-block">
+								<div class="service-image">
+									<img src="images/services/8.jpg" alt="">
+								</div>
+								<div class="service-text">
+									<h3>Окна с уникальным дизайном</h3>
+									<p>ПВХ-окна любой сложности.</p>
+									<p><strong>Удорожание всего от 20%</strong></p>
+									<p class="services-image_mobile visible-xs-block"><a
+											href="images/services/original/custom/1.jpg"
+											data-fancybox-group="fancybox-thumb-4" class="fancybox-thumb"><span>Смотреть
+												работы</span></a>
+									</p>
+									<div class="service-button"><a href="#application"
+											data-subject="Окна с уникальным дизайном"
+											class="btn btn-success btn-sm fancyboxModal measurer-call">Вызвать
+											замерщика</a>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-12 col-lg-6">
-					<div class="service-block">
-						<div class="service-image">
-							<img src="images/services/6.jpg" alt="">
+					<div class="services-arrows">
+						<div class="swiper-button-prev">
+							<div class="services__arrow services__arrow--left">
+								<img src="images/benefits/left-arrow.svg" alt="">
+							</div>
 						</div>
-						<div class="service-text">
-							<h3>Пвх-окна премиум класса</h3>
-							<p>Европейское качество, по ценам ниже рыночных.</p>
-							<p><strong>От 6 200 руб./м<sup>2</sup></strong></p>
-							<p class="services-image_mobile visible-xs-block"><a
-									href="images/services/original/premium/1.jpg" data-fancybox-group="fancybox-thumb-2"
-									class="fancybox-thumb"><span>Смотреть работы</span></a></p>
-							<div class="service-button"><a href="#application" data-subject="Пвх-окна премиум класса"
-									class="btn btn-success btn-sm fancyboxModal">Вызвать замерщика</a></div>
+						<div class="swiper-button-next">
+							<div class="services__arrow services__arrow--right">
+								<img src="images/benefits/right-arrow.svg" alt="">
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="col-md-12 col-lg-6">
-					<div class="service-block">
-						<div class="service-image">
-							<img src="images/services/7.jpg" alt="">
-						</div>
-						<div class="service-text">
-							<h3>Входные группы-перегородки</h3>
-							<p>Алюминиевые и пластиковые перегородки заводского качества.</p>
-							<p><strong>От 8 350 руб./м<sup>2</sup></strong></p>
-							<p class="services-image_mobile visible-xs-block"><a
-									href="images/services/original/septa/1.jpg" data-fancybox-group="fancybox-thumb-3"
-									class="fancybox-thumb"><span>Смотреть работы</span></a></p>
-							<div class="service-button"><a href="#application" data-subject="Входные группы-перегородки"
-									class="btn btn-success btn-sm fancyboxModal">Вызвать замерщика</a></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12 col-lg-6">
-					<div class="service-block">
-						<div class="service-image">
-							<img src="images/services/8.jpg" alt="">
-						</div>
-						<div class="service-text">
-							<h3>Окна с уникальным дизайном</h3>
-							<p>ПВХ-окна любой сложности.</p>
-							<p><strong>Удорожание всего от 20%</strong></p>
-							<p class="services-image_mobile visible-xs-block"><a
-									href="images/services/original/custom/1.jpg" data-fancybox-group="fancybox-thumb-4"
-									class="fancybox-thumb"><span>Смотреть работы</span></a></p>
-							<div class="service-button"><a href="#application" data-subject="Окна с уникальным дизайном"
-									class="btn btn-success btn-sm fancyboxModal">Вызвать замерщика</a></div>
-						</div>
-					</div>
-				</div>
-				<div class="services-arrows">
-					<div class="services__arrow services__arrow--left">
-						<img src="images/benefits/left-arrow.svg" alt="">
-					</div>
-					<div class="services__arrow services__arrow--right">
-						<img src="images/benefits/right-arrow.svg" alt="">
 					</div>
 				</div>
 			</div>
@@ -304,7 +352,7 @@
 						<div class="order-form rf">
 							<h3 class="order-form-heading">Оставить заявку</h3>
 							<div class="order-form-subheading">на получение скидки 20%</div>
-							<form name="action-form" class="form-horizontal" id="form-horizontal">
+							<form name="action-form" class="form-horizontal">
 								<div class="form-group">
 									<div class="col-sm-12">
 										<input type="text" name="fio" class="form-control required"
@@ -520,7 +568,7 @@
 						<div class="order-form rf">
 							<h3 class="order-form-heading">Оставить заявку</h3>
 							<div class="order-form-subheading">на получение скидки 20%</div>
-							<form name="action-form2" class="form-horizontal" id="form-horizontal">
+							<form name="action-form2" class="form-horizontal">
 								<div class="form-group">
 									<div class="col-sm-12">
 										<input type="text" name="fio" class="form-control required"
@@ -825,7 +873,6 @@
 		<div class="image-modal__body"></div>
 		<span title="Close" class="image-modal__close">x</span>
 	</div>
-	
 </body>
 
 </html>

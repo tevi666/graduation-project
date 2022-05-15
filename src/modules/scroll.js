@@ -1,23 +1,36 @@
 export const scroll = () => {
-    const scroll = document.querySelector('.smooth-scroll');
+	const scrollBtn = document.querySelector('.smooth-scroll');
+	scrollBtn.style.display = 'none';
 
-    function trackScroll() {
-        const scrolles = window.pageYOffset;
-        const clientHeight = document.documentElement.clientHeight;
-        if (scrolles > clientHeight) {
-            scroll.classList.add('smooth-scroll-show');
-        }
-        if (scrolles < clientHeight) {
-            scroll.classList.remove('smooth-scroll-show');
-        }
-    }
+	const trackScroll = () => {
+		const scrolled = window.pageYOffset;
+		const coords = document.documentElement.clientHeight;
 
-    function scrollToTop() {
-        if (window.pageYOffset > 0) {
-            window.scrollBy(10, -80);
-            setTimeout(scrollToTop, 10);
-        }
-    }
-    window.addEventListener('scroll', trackScroll);
-    scroll.addEventListener('click', scrollToTop);
+		if (scrolled > coords) {
+			scrollBtn.style.display = 'block';
+		}
+		if (scrolled < coords) {
+			scrollBtn.style.display = 'none';
+		}
+
+	};
+
+	const backToTop = () => {
+		const header = document.getElementById('header');
+		if (header) {
+			header.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start',
+				inline: 'center'
+			});
+		} else {
+			document.body.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start',
+				inline: 'center'
+			});
+		}
+	};
+	window.addEventListener('scroll', trackScroll);
+	scrollBtn.addEventListener('click', backToTop);
 };

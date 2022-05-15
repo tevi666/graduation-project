@@ -28,7 +28,7 @@ export const isValidatedForm = (form) => {
 			}
 
 			if ((input.name === 'phone')) {
-				phoneSuccess = !!input.value && /^([+]?[0-9]{5,16})/g.test(input.value);
+				phoneSuccess = !!input.value && /^([+]?[0-9]{5,16})$/g.test(input.value);
 
 				if (!phoneSuccess) {
 					input.classList.add('error');
