@@ -38,7 +38,7 @@ export const sendModal = () => {
                     const formData = new FormData(item);
                     postData('https://jsonplaceholder.typicode.com/posts', formData)
                         .then(res => {
-                            console.log(res);
+                            
                         })
                         .catch(() => message);
                     clearInputs();
@@ -54,7 +54,7 @@ export const sendModal = () => {
                     const formData = new FormData(item);
                     postData('https://jsonplaceholder.typicode.com/posts', formData)
                         .then(res => {
-                            console.log(res);
+                            
                         })
                         .catch(() => message);
                     clearInputs();
