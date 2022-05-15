@@ -2,9 +2,6 @@ import {
     validateInput,
     isValidatedForm
 } from './validation';
-import {
-    animate
-} from './helpers';
 
 export const sendModal = () => {
     const modal = document.querySelector('.header-modal--opened');
