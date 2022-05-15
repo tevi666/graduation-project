@@ -47,7 +47,6 @@ export const modal = ({
 				modal.style.display = 'none';
 				overlay.style.display = 'none';
 			}, animationDuration);
-
 		};
 
 		const changeModalContent = (e) => {
