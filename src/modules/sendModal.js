@@ -11,7 +11,11 @@ export const sendModal = () => {
         form1 = document.querySelectorAll('form[name="application-form"]'),
         inputs = document.querySelectorAll('input');
 
-
+    const message = {
+        loading: 'Отправка..',
+        success: 'Данные успешно отправлены',
+        failure: 'Ошибка отправки данных. Попробуйте позднее',
+    };
     const noneModal = () => {
         modal.style.display = 'none';
     };
@@ -23,6 +27,7 @@ export const sendModal = () => {
     };
 
     const postData = async (url, data) => {
+        document.querySelector('.status').textContent = message.loading;
         let res = await fetch(url, {
             method: "POST",
             body: data
@@ -42,40 +47,63 @@ export const sendModal = () => {
             item.value = '';
         });
     };
-
     form.forEach(item => {
-        item.addEventListener('submit', e => {
+        item.addEventListener('submit', (e) => {
             e.preventDefault();
             if (isValidatedForm(item)) {
-                setTimeout(() => {
-                    noneModal();
-                    noneModalOverlay();
-                    const formData = new FormData(item);
-                    postData('https://jsonplaceholder.typicode.com/posts', formData)
-                        .then(res => {
-
-                        })
-                        .catch(() => message);
-                    clearInputs();
-                }, 1000);
+                let statusMessage = document.createElement('div');
+                statusMessage.style.textAlign = 'center';
+                statusMessage.style.margin = '10px';
+                statusMessage.style.color = '#546a76';
+                statusMessage.classList.add('status');
+                item.append(statusMessage);
+                const formData = new FormData(item);
+                postData('https://jsonplaceholder.typicode.com/posts', formData)
+                    .then(res => {
+                        console.log(res);
+                        statusMessage.textContent = message.success;
+                    })
+                    .catch(() => statusMessage.textContent = message.failure)
+                    .finally(() => {
+                        clearInputs();
+                        setTimeout(() => {
+                            statusMessage.remove();
+                        }, 1000);
+                        setTimeout(() => {
+                            noneModal();
+                            noneModalOverlay();
+                        }, 1100);
+                    });
             }
         });
     });
     form1.forEach(item => {
-        item.addEventListener('submit', e => {
+        item.addEventListener('submit', (e) => {
             e.preventDefault();
             if (isValidatedForm(item)) {
-                setTimeout(() => {
-                    noneModal1();
-                    noneModalOverlay();
-                    const formData = new FormData(item);
-                    postData('https://jsonplaceholder.typicode.com/posts', formData)
-                        .then(res => {
-
-                        })
-                        .catch(() => message);
-                    clearInputs();
-                }, 1000);
+                let statusMessage = document.createElement('div');
+                statusMessage.style.textAlign = 'center';
+                statusMessage.style.margin = '10px';
+                statusMessage.style.color = '#546a76';
+                statusMessage.classList.add('status');
+                item.append(statusMessage);
+                const formData = new FormData(item);
+                postData('https://jsonplaceholder.typicode.com/posts', formData)
+                    .then(res => {
+                        console.log(res);
+                        statusMessage.textContent = message.success;
+                    })
+                    .catch(() => statusMessage.textContent = message.failure)
+                    .finally(() => {
+                        clearInputs();
+                        setTimeout(() => {
+                            statusMessage.remove();
+                        }, 1000);
+                        setTimeout(() => {
+                            noneModal1();
+                            noneModalOverlay();
+                        }, 1100);
+                    });
             }
         });
     });

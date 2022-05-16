@@ -47,10 +47,10 @@ export const swiperServices = new Swiper('.swiper-services', {
         },
         576: {
             slidesPerView: 1,
-            // grid: {
-            //     fill: 'row',
-            //     rows: 2,
-            // }
+            grid: {
+                fill: 'row',
+                rows: 2,
+            }
         },
         1200: {
             slidesPerView: 2,

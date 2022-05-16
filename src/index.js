@@ -28,8 +28,12 @@ import {
 } from "./modules/sendModal";
 
 import {
-	comments
+    comments
 } from './modules/comments';
+
+import {
+    menu
+} from './modules/menu';
 
 timer('20 may 2022 22:00');
 scroll();
@@ -71,3 +75,4 @@ sendForm({
 });
 sendModal();
 comments();
+menu();

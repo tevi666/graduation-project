@@ -2,7 +2,7 @@ import {
 	animate
 } from './helpers';
 
-export const calculate = () => {
+export const calculate = (price = 1500) => {
 	const calcBlock = document.getElementById('calc');
 	if (calcBlock) {
 		const calcType = document.getElementById('calc-type');
@@ -18,9 +18,9 @@ export const calculate = () => {
 			let totalValue = 0;
 
 			if (calcTypeValue && calcSquareValue && calcTypeMaterialValue) {
-				totalValue = calcSquareValue * calcTypeValue * calcTypeMaterialValue;
+				totalValue = price *  calcSquareValue * calcTypeValue * calcTypeMaterialValue;
 			} else if (calcTypeValue && calcSquareValue) {
-				totalValue = calcSquareValue * calcTypeValue;
+				totalValue = price * calcSquareValue * calcTypeValue;
 			} else {
 				totalValue = 0;
 			}
@@ -30,6 +30,9 @@ export const calculate = () => {
 		calcBlock.addEventListener('input', e => {
 			if (e.target === calcSquare) {
 				e.target.value = e.target.value.replace(/\D+/g, '');
+			}
+			if(calcTypeMaterial.value === '--') {
+				totalValue = '';
 			}
 			if (e.target === calcType || e.target === calcTypeMaterial || e.target === calcSquare) {
 				const totalValue = countCalc();
