@@ -27,6 +27,10 @@ import {
     sendModal
 } from "./modules/sendModal";
 
+import {
+	comments
+} from './modules/comments';
+
 timer('20 may 2022 22:00');
 scroll();
 modal({
@@ -66,3 +70,4 @@ sendForm({
     }]
 });
 sendModal();
+comments();
