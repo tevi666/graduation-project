@@ -60,7 +60,6 @@ export const sendModal = () => {
                 const formData = new FormData(item);
                 postData('https://jsonplaceholder.typicode.com/posts', formData)
                     .then(res => {
-                        console.log(res);
                         statusMessage.textContent = message.success;
                     })
                     .catch(() => statusMessage.textContent = message.failure)
@@ -90,7 +89,6 @@ export const sendModal = () => {
                 const formData = new FormData(item);
                 postData('https://jsonplaceholder.typicode.com/posts', formData)
                     .then(res => {
-                        console.log(res);
                         statusMessage.textContent = message.success;
                     })
                     .catch(() => statusMessage.textContent = message.failure)
