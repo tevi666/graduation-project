@@ -24,10 +24,6 @@ import {
 } from "./modules/sendForm";
 
 import {
-    sendModal
-} from "./modules/sendModal";
-
-import {
     comments
 } from './modules/comments';
 
@@ -38,25 +34,29 @@ import {
 timer('20 may 2022 22:00');
 scroll();
 modal({
-    elementSelector: '.callback',
-    modalSelector: '.header-modal',
-    overlaySelector: '.overlay',
-    closeSelector: '.header-modal__close',
+	elementSelector: '.callback',
+	modalSelector: '.header-modal',
+	overlaySelector: '.overlay',
+	closeSelector: '.header-modal__close',
 });
+
 modal({
-    elementSelector: '.measurer-call',
-    modalSelector: '.services-modal',
-    overlaySelector: '.overlay',
-    closeSelector: '.services-modal__close',
+	elementSelector: 'measurer-call',
+	modalSelector: '.services-modal',
+	overlaySelector: '.overlay',
+	closeSelector: '.services-modal__close',
+	isServices: true,
+	servicesBlockSelector: '#services',
 });
+
 modal({
-    elementSelector: '.document-overlay',
-    modalSelector: '.image-modal',
-    overlaySelector: '.overlay',
-    closeSelector: '.image-modal__close',
-    isImageModal: true,
-    boxElementSelector: '.sertificate-document',
-    modalBodySelector: '.image-modal__body'
+	elementSelector: '.document-overlay',
+	modalSelector: '.image-modal',
+	overlaySelector: '.overlay',
+	closeSelector: '.image-modal__close',
+	isImageModal: true,
+	boxElementSelector: '.sertificate-document',
+	modalBodySelector: '.image-modal__body'
 });
 calculate();
 sendForm({
@@ -73,6 +73,5 @@ sendForm({
         selector: '#calc-total'
     }]
 });
-sendModal();
 comments();
 menu();

@@ -8,8 +8,31 @@ export const sendForm = ({
 	additionalData = []
 }) => {
 	const form = document.querySelector(formSelector);
+	const modal = document.querySelector('.header-modal--opened');
+	const modalOverlay = document.querySelector('.overlay');
+	const modal1 = document.querySelector('.services-modal--opened');
 	const statusBlock = document.createElement('div');
-	form.append(statusBlock);
+
+	statusBlock.style.textAlign = 'center';
+	statusBlock.style.margin = '10px';
+	statusBlock.style.color = '#546a76';
+	statusBlock.style.opacity = 0.7;
+
+	try {
+		form.append(statusBlock);
+	} catch (error) {
+		console.log(error.message);
+	}
+
+	const noneModal = () => {
+		modal.style.display = 'none';
+	};
+	const noneModalOverlay = () => {
+		modalOverlay.style.display = 'none';
+	};
+	const noneModal1 = () => {
+		modal1.style.display = 'none';
+	};
 
 	const sendData = (data) => {
 		return fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -92,10 +115,16 @@ export const sendForm = ({
 			}
 			return;
 		});
+
 		form.addEventListener('submit', e => {
 			e.preventDefault();
 			if (isValidatedForm(form)) {
 				submitForm();
+				setTimeout(() => {
+					noneModal();
+					noneModal1();
+					noneModalOverlay();
+				}, 4000);
 			} else {
 				showMessage('not valid');
 			}

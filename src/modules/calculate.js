@@ -18,7 +18,7 @@ export const calculate = (price = 1500) => {
 			let totalValue = 0;
 
 			if (calcTypeValue && calcSquareValue && calcTypeMaterialValue) {
-				totalValue = price *  calcSquareValue * calcTypeValue * calcTypeMaterialValue;
+				totalValue = price * calcSquareValue * calcTypeValue * calcTypeMaterialValue;
 			} else if (calcTypeValue && calcSquareValue) {
 				totalValue = price * calcSquareValue * calcTypeValue;
 			} else {
@@ -31,8 +31,8 @@ export const calculate = (price = 1500) => {
 			if (e.target === calcSquare) {
 				e.target.value = e.target.value.replace(/\D+/g, '');
 			}
-			if(calcTypeMaterial.value === '--') {
-				totalValue = '';
+			if (calcTypeMaterial.selectedIndex === 0 || calcType.selectedIndex === 0) {
+				totalValue = 0;
 			}
 			if (e.target === calcType || e.target === calcTypeMaterial || e.target === calcSquare) {
 				const totalValue = countCalc();

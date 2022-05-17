@@ -1,6 +1,9 @@
 import {
 	animate
 } from './helpers';
+import {
+	sendForm
+} from './sendForm';
 
 export const modal = ({
 	elementSelector,
@@ -10,6 +13,8 @@ export const modal = ({
 	isImageModal = false,
 	boxElementSelector = '',
 	modalBodySelector = '',
+	isServices = false,
+	servicesBlockSelector = '',
 	animationDuration = 300
 }) => {
 	try {
@@ -17,6 +22,7 @@ export const modal = ({
 		const modal = document.querySelector(modalSelector);
 		const overlay = document.querySelector(overlaySelector);
 		const closeBtn = modal.querySelector(closeSelector);
+		const modalForm = modal.querySelector('form');
 
 		const openModal = (e) => {
 			e.preventDefault();
@@ -47,6 +53,7 @@ export const modal = ({
 				modal.style.display = 'none';
 				overlay.style.display = 'none';
 			}, animationDuration);
+
 		};
 
 		const changeModalContent = (e) => {
@@ -69,14 +76,34 @@ export const modal = ({
 			modalBody.append(img);
 		};
 
-		buttons.forEach(button => {
-			button.addEventListener('click', (e) => {
-				if (isImageModal) {
-					changeModalContent(e);
-				}
-				openModal(e);
+		if (modalForm) {
+			sendForm({
+				formSelector: `${modalSelector} form`,
+				additionalData: [{
+					type: 'input',
+					selector: '#calc-total'
+				}]
 			});
-		});
+		}
+
+		if (isServices) {
+			const servicesBlock = document.querySelector(servicesBlockSelector);
+
+			servicesBlock.addEventListener('click', (e) => {
+				if (e.target.classList.contains(elementSelector)) {
+					openModal(e);
+				}
+			});
+		} else {
+			buttons.forEach(button => {
+				button.addEventListener('click', (e) => {
+					if (isImageModal) {
+						changeModalContent(e);
+					}
+					openModal(e);
+				});
+			});
+		}
 
 		closeBtn.addEventListener('click', closeModal);
 
