@@ -107,7 +107,5 @@ export const modal = ({
 
 		closeBtn.addEventListener('click', closeModal);
 
-	} catch (error) {
-		console.log(error.message);
-	}
+	} catch (error) {}
 };

@@ -27,9 +27,9 @@ import {
     menu
 } from "./modules/menu";
 
-import {
-    comments
-} from "./modules/comments";
+// import {
+//     comments
+// } from "./modules/comments";
 
 timer("20 may 2022 22:00");
 scroll();
@@ -123,4 +123,4 @@ if (body.classList.contains("kuhni")) {
     });
 }
 menu();
-comments();
+// comments();

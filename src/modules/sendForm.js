@@ -22,9 +22,6 @@ export const sendForm = ({
 				} else {
 					console.log("Ошибка отправки");
 				}
-			})
-			.catch((error) => {
-				console.log(error);
 			});
 	};
 	const submitForm = () => {
@@ -45,31 +42,17 @@ export const sendForm = ({
 				});
 			}
 		}
-		form.addEventListener("submit", (e) => {
-			e.preventDefault();
-			submitForm();
-		});
 		sendData(formBody)
 			.then((data) => {
 				formElements.forEach((input) => {
 					input.value = "";
 				});
-			})
-			.catch((error) => {
-				console.log(error);
 			});
-	};
-
-	try {
-		if (!form) {
-			throw new Error("Верните форму на страницу");
-		}
-
-		form.addEventListener("submit", (e) => {
+		form.addEventListener('submit', (e) => {
 			e.preventDefault();
-			submitForm();
+			if (isValidatedForm(form)) {
+				submitForm();
+			}
 		});
-	} catch (error) {
-		console.log(error.message);
-	}
+	};
 };
