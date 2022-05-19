@@ -9,9 +9,9 @@ export const calculate = (price = 1500) => {
 		const calcTypeMaterial = document.getElementById('calc-type-material');
 		const calcSquare = document.getElementById('calc-input');
 		const total = document.getElementById('calc-total');
-		
+
 		let totalValue = 0;
-		
+
 		const countCalc = () => {
 			const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
 			const calcSquareValue = +calcSquare.value;
