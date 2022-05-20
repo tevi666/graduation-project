@@ -1,111 +1,37 @@
-import {
-	animate
-} from './helpers';
-import {
-	sendForm
-} from './sendForm';
+export const modal = () => {
+	const modal = document.querySelector(".header-modal");
+	const overlay = document.querySelector(".overlay");
+	const btn = document.getElementsByClassName("btn")[1];
+	const closeBtn = document.querySelector(".header-modal__close");
 
-export const modal = ({
-	elementSelector,
-	modalSelector,
-	overlaySelector,
-	closeSelector,
-	isImageModal = false,
-	boxElementSelector = '',
-	modalBodySelector = '',
-	isServices = false,
-	servicesBlockSelector = '',
-	animationDuration = 300
-}) => {
-	try {
-		const buttons = document.querySelectorAll(elementSelector);
-		const modal = document.querySelector(modalSelector);
-		const overlay = document.querySelector(overlaySelector);
-		const closeBtn = modal.querySelector(closeSelector);
-		const modalForm = modal.querySelector('form');
+	btn.addEventListener("click", (event) => {
+		event.preventDefault();
+		overlay.style.display = "block";
+		modal.style.display = "block";
+	});
 
-		const openModal = (e) => {
-			e.preventDefault();
-			modal.style.display = 'block';
-			overlay.style.display = 'block';
-			animate({
-				duration: animationDuration,
-				timing(timeFraction) {
-					return timeFraction;
-				},
-				draw(progress) {
-					modal.style.opacity = progress;
-				}
-			});
-		};
+	closeBtn.addEventListener("click", () => {
+		overlay.style.display = "none";
+		modal.style.display = "none";
+	});
+	const serviceBtn = document.querySelectorAll(".service-button");
+	const servicesModal = document.querySelector(".services-modal");
+	const servicesClose = document.querySelector(".services-modal__close");
+	const overlaytwo = document.querySelector(".overlay");
+	const subj = servicesModal.querySelector('input[name="subject"]');
 
-		const closeModal = () => {
-			animate({
-				duration: animationDuration,
-				timing(timeFraction) {
-					return timeFraction;
-				},
-				draw(progress) {
-					modal.style.opacity = 1 - progress;
-				}
-			});
-			setTimeout(() => {
-				modal.style.display = 'none';
-				overlay.style.display = 'none';
-			}, animationDuration);
+	serviceBtn.forEach((btn) => {
+		btn.addEventListener("click", (event) => {
+			event.preventDefault();
+			overlaytwo.style.display = "block";
+			servicesModal.style.display = "block";
+			subj.value = event.target.attributes[1].value;
+		});
+	});
 
-		};
-
-		const changeModalContent = (e) => {
-			const modalBody = modal.querySelector(modalBodySelector);
-			//очищаем контейнер для изображения
-			modalBody.innerHTML = '';
-
-			//получаем src уменьшенного изображения, помещаем его в массив из названий папок и названия файла
-			const imgSrcArr = e.target.closest(boxElementSelector).querySelector('img').getAttribute('src').split('/');
-
-			//добавляем в массив название папки с оригинальным изображением
-			imgSrcArr.splice(imgSrcArr.length - 1, 0, 'original');
-
-			//переводим массив в строку
-			const originalImgSrc = imgSrcArr.toString().replace(/\,/g, '/');
-
-			const img = document.createElement('img');
-			img.setAttribute('src', originalImgSrc);
-			img.setAttribute('alt', 'certificate');
-			modalBody.append(img);
-		};
-
-		if (modalForm) {
-			sendForm({
-				formSelector: `${modalSelector} form`,
-				additionalData: [{
-					type: 'input',
-					selector: '#calc-total'
-				}]
-			});
-		}
-
-		if (isServices) {
-			const servicesBlock = document.querySelector(servicesBlockSelector);
-
-			servicesBlock.addEventListener('click', (e) => {
-				if (e.target.classList.contains(elementSelector)) {
-					openModal(e);
-				}
-			});
-		} else {
-			buttons.forEach(button => {
-				button.addEventListener('click', (e) => {
-					if (isImageModal) {
-						changeModalContent(e);
-					}
-					openModal(e);
-				});
-			});
-		}
-
-		closeBtn.addEventListener('click', closeModal);
-
-	} catch (error) {}
+	servicesClose.addEventListener("click", (event) => {
+		event.preventDefault();
+		overlaytwo.style.display = "none";
+		servicesModal.style.display = "none";
+	});
 };

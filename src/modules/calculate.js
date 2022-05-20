@@ -19,8 +19,6 @@ export const calculate = (price = 1500) => {
 
 			if (calcTypeValue && calcSquareValue && calcTypeMaterialValue) {
 				totalValue = price * calcSquareValue * calcTypeValue * calcTypeMaterialValue;
-			} else if (calcTypeValue && calcSquareValue) {
-				totalValue = price * calcSquareValue * calcTypeValue;
 			} else {
 				totalValue = 0;
 			}

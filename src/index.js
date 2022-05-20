@@ -27,9 +27,9 @@ import {
     menu
 } from "./modules/menu";
 
-// import {
-//     comments
-// } from "./modules/comments";
+import {
+    modalImg
+} from './modules/modalImg';
 
 timer("20 may 2022 22:00");
 scroll();
@@ -49,7 +49,7 @@ modal({
     servicesBlockSelector: "#services",
 });
 
-modal({
+modalImg({
     elementSelector: ".document-overlay",
     modalSelector: ".image-modal",
     overlaySelector: ".overlay",
@@ -70,11 +70,11 @@ if (body.classList.contains("okna")) {
         someElement: [],
     });
     sendForm({
-        formId: "callback-form1",
+        formId: "callback-form-modal1",
         someElement: [],
     });
     sendForm({
-        formId: "application-form1",
+        formId: "application-form-modal1",
         someElement: [],
     });
 }
@@ -86,25 +86,27 @@ if (body.classList.contains("balkony")) {
         }, ],
     });
     sendForm({
+        formId: "callback-form-modal2",
+        someElement: [],
+    });
+    sendForm({
         formId: "form4",
         someElement: [{
             id: "calc-total",
         }, ],
     });
     sendForm({
-        formId: "callback-form2",
-        someElement: [{
-            id: "calc-total",
-        }, ],
-    });
-    sendForm({
-        formId: "application-form2",
+        formId: "application-form-modal2",
         someElement: [{
             id: "calc-total",
         }, ],
     });
 }
 if (body.classList.contains("kuhni")) {
+    sendForm({
+        formId: "callback-form-modal3",
+        someElement: [],
+    });
     sendForm({
         formId: "form5",
         someElement: [],
@@ -114,13 +116,8 @@ if (body.classList.contains("kuhni")) {
         someElement: [],
     });
     sendForm({
-        formId: "callback-form3",
-        someElement: [],
-    });
-    sendForm({
-        formId: "application-form3",
+        formId: "application-form-modal3",
         someElement: [],
     });
 }
 menu();
-// comments();
