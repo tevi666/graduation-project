@@ -87,7 +87,9 @@ if (body.classList.contains("balkony")) {
     });
     sendForm({
         formId: "callback-form-modal2",
-        someElement: [],
+        someElement: [{
+            id: "calc-total",
+        }],
     });
     sendForm({
         formId: "form4",
